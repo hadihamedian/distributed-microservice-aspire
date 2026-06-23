@@ -1,5 +1,7 @@
 <Solution>
-  <Folder Name="/src/" />
+  <Folder Name="/src/">
+    <Project Path="src/AppHost/AppHost.csproj" />
+  </Folder>
   <Folder Name="/src/Services/">
     <Project Path="src/Services/ServiceDefaults/ServiceDefaults.csproj" />
   </Folder>
