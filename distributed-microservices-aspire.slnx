@@ -1,6 +1,8 @@
 <Solution>
   <Folder Name="/src/" />
-  <Folder Name="/src/Services/" />
+  <Folder Name="/src/Services/">
+    <Project Path="src/Services/ServiceDefaults/ServiceDefaults.csproj" />
+  </Folder>
   <Folder Name="/src/Services/OrderService/">
     <Project Path="src/Services/OrderService/OrderService.API/OrderService.API.csproj" />
     <Project Path="src/Services/OrderService/OrderService.Application/OrderService.Application.csproj" />
