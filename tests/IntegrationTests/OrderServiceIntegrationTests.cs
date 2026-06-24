@@ -33,7 +33,6 @@ public class OrderServiceIntegrationTests : IAsyncLifetime
 
         _factory = new WebApplicationFactory<OrderProgram>().WithWebHostBuilder(builder =>
         {
-            // روش صحیح و قطعی برای Aspire
             builder.UseSetting("ConnectionStrings:OrderDb", _dbContainer.GetConnectionString());
 
             builder.ConfigureServices(services =>
