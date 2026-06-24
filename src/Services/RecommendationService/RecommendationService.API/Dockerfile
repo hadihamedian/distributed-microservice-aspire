@@ -1,11 +1,10 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
+﻿FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
 WORKDIR /app
 EXPOSE 8080
 
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 
-# کپی کردن فایل‌های پروژه جهت ریستور پکیج‌ها
 COPY ["src/Services/RecommendationService/RecommendationService.API/RecommendationService.API.csproj", "src/Services/RecommendationService/RecommendationService.API/"]
 COPY ["src/Services/RecommendationService/RecommendationService.Infrastructure/RecommendationService.Infrastructure.csproj", "src/Services/RecommendationService/RecommendationService.Infrastructure/"]
 COPY ["src/Services/RecommendationService/RecommendationService.Application/RecommendationService.Application.csproj", "src/Services/RecommendationService/RecommendationService.Application/"]
@@ -15,7 +14,6 @@ COPY ["src/Shared/Shared.Contracts/Shared.Contracts.csproj", "src/Shared/Shared.
 
 RUN dotnet restore "src/Services/RecommendationService/RecommendationService.API/RecommendationService.API.csproj"
 
-# کپی کردن کل سورس کد و بیلد پروژه
 COPY . .
 WORKDIR "/src/src/Services/RecommendationService/RecommendationService.API"
 RUN dotnet build "RecommendationService.API.csproj" -c Release -o /app/build
